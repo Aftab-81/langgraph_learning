@@ -37,7 +37,7 @@ if user_input:
             )
             
             # Added because we are using Google AI Studio API & it has different response format without this line the error would happen. 
-            # If using OpenAI or any other powerful models, it is OK to remove this line the code'll work properly.
+            # If you are using OpenAI or any other powerful models, it is OK to remove this line the code'll work properly.
             if ai_message_chunk.content and isinstance(ai_message_chunk.content, list) and ai_message_chunk.content[-1].get("type") == "text" 
 
         )
