@@ -44,8 +44,9 @@ graph.set_finish_point("chat_node")
 
 chatbot = graph.compile(checkpointer = checkpointer)
 
-res = chatbot.invoke({"messages": [HumanMessage(content = "What is my name?")]}, 
-                    config = {"configurable": {"thread_id": "thread-2"}}
-                )
+def retrieve_all_threads():
+    all_thread = set()
+    for checkpoint in checkpointer.list(None): # None -> Return all checkpoints from DB instead of specific one.
+        all_thread.add(checkpoint.config["configurable"]["thread_id"])
 
-print(res)
+    return list(all_thread)
