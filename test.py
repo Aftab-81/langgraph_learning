@@ -69,3 +69,18 @@
 
 # with open("graph.png", "wb") as f:
 #     f.write(chain.get_graph().draw_mermaid_png())
+
+from langchain_openai import ChatOpenAI
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+llm = ChatOpenAI(
+    model="google/gemma-4-26b-a4b-it:free",
+    openai_api_key=os.environ["OPENROUTER_API_KEY"],
+    openai_api_base="https://openrouter.ai/api/v1",
+)
+
+response = llm.invoke("What is the capital of France?")
+print(response.content)

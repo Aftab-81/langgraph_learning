@@ -19,7 +19,7 @@ load_dotenv()
 
 # 2
 llm_1 = HuggingFaceEndpoint(
-    repo_id="zai-org/GLM-4.5",  #openai/gpt-oss-120b
+    repo_id="openai/gpt-oss-120b",  #openai/gpt-oss-120b # zai-org/GLM-4.5 # google/gemma-4-26b-a4b-it:free
     task="text-generation",
     huggingfacehub_api_token=os.environ["HUGGINGFACEHUB_API_TOKEN"]
 )
