@@ -44,9 +44,6 @@ api_key = os.getenv("OPENROUTER_API_KEY")
 if not api_key:
     raise ValueError("OpenRouter API key not found. Check your .env file.")
 
-# Optional: only needed for the stock price tool
-alpha_key = os.getenv("ALPHAVANTAGE_API_KEY")
-
 llm = ChatOpenRouter(
     model="nvidia/nemotron-3.5-lightning:free",
     api_key=api_key,
